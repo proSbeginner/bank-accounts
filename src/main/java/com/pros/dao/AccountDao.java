@@ -46,7 +46,18 @@ public class AccountDao {
         return list;
     }
 
-    public int create() {
-        return 0;
+    public int create(Account account) {
+        // INSERT INTO ACCOUNT(number, name, phone) VALUES(?, ?, ?)
+        Connection connection = getConnection();
+        try {
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO ACCOUNT(number, name, phone) VALUES(?, ?, ?)");
+            statement.setString(3, account.getPhone());
+            statement.setString(1, account.getNumber());
+            statement.setString(2, account.getName());
+            int recordCount = statement.executeUpdate();
+            return recordCount;
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }

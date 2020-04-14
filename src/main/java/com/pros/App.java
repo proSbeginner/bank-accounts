@@ -21,7 +21,22 @@ public class App {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    System.out.print("Enter account number: ");
+                    String aNumber = sc.nextLine();
+                    System.out.print("Enter account name: ");
+                    String aName = sc.nextLine();
+                    System.out.print("Enter account phone: ");
+                    String aPhone = sc.nextLine();
 
+                    Account account = new Account();
+                    account.setNumber(aNumber);
+                    account.setName(aName);
+                    account.setPhone(aPhone);
+
+                    int recordCount = dao.create(account);
+                    if(recordCount > 0) {
+                        System.out.println("An account is created");
+                    }
 
                     break;
                 case 2:
