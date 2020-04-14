@@ -21,6 +21,7 @@ public class App {
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
+                    sc.nextLine();
                     System.out.print("Enter account number: ");
                     String aNumber = sc.nextLine();
                     System.out.print("Enter account name: ");
