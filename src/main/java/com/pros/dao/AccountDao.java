@@ -66,7 +66,7 @@ public class AccountDao {
         Connection connection = getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM ACCOUNT WHERE id=?");
-            statement.setString(1, account.getId().toString());
+            statement.setLong(1, account.getId());
             int recordCount = statement.executeUpdate();
             return recordCount;
         } catch (SQLException e) {
