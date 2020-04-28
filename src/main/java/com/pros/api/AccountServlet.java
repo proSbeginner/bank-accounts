@@ -1,5 +1,6 @@
 package com.pros.api;
 
+import com.google.gson.Gson;
 import com.pros.dao.AccountDao;
 
 import javax.servlet.ServletException;
@@ -15,11 +16,12 @@ public class AccountServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List list = dao.findAll();
+        String result =  new Gson().toJson(list);
 
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
-        out.print(list);
+        out.print(result);
         out.flush();
     }
 
