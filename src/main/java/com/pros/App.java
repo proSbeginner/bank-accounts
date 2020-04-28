@@ -29,7 +29,7 @@ public class App {
                     System.out.print("Enter account phone: ");
                     String accountPhone = sc.nextLine();
 
-                    Account account = new Account();
+                    Account account = new Account(500);
                     account.setNumber(accountNumber);
                     account.setName(accountName);
                     account.setPhone(accountPhone);
@@ -53,7 +53,7 @@ public class App {
                     }
                     System.out.print("Enter account id: ");
                     Long accountId = sc.nextLong();
-                    Account account = new Account();
+                    Account account = new Account(500);
                     account.setId(accountId);
 
                     int recordCount = dao.delete(account);

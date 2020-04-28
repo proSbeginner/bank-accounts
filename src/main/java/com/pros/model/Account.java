@@ -5,6 +5,12 @@ public class Account {
     private String number;
     private String name;
     private String phone;
+    private double balance;
+
+    // constructor
+    public Account(double initBalance) {
+        balance = initBalance;
+    }
 
     public Long getId() {
         return id;
@@ -36,5 +42,9 @@ public class Account {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }

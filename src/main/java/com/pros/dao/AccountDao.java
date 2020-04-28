@@ -12,6 +12,11 @@ import java.util.List;
 public class AccountDao {
 
     private Connection getConnection() {
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e.getMessage());
+        }
         String url = "jdbc:sqlserver://localhost:1434;user=SA;password=Passw0rd;databaseName=accountdb";
         try {
             return DriverManager.getConnection(url);
@@ -33,7 +38,7 @@ public class AccountDao {
                 String accountName = resultSet.getString("name");
                 String accountPhone = resultSet.getString("phone");
 
-                Account account = new Account();
+                Account account = new Account(500);
                 account.setId(accountId);
                 account.setNumber(accountNumber);
                 account.setName(accountName);
