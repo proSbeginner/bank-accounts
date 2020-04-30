@@ -6,6 +6,7 @@ public class Account {
     private String name;
     private String phone;
     private double balance;
+    private double rate;
 
     // constructor
     public Account(double initBalance) {
@@ -46,5 +47,13 @@ public class Account {
 
     public double getBalance() {
         return balance;
+    }
+
+    public double getRate() {
+        return rate;
+    }
+
+    public void setRate(double rate) {
+        this.rate = rate;
     }
 }
